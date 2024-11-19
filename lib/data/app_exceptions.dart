@@ -3,7 +3,7 @@ final _message;
 final _prefix;
   AppExceptions([this._message, this._prefix]);
 
-  // @override
+  @override
   String toString(){
     return '$_prefix$_message';
   }
