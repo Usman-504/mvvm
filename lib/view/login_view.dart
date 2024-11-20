@@ -7,15 +7,16 @@ import 'package:mvvm/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../res/components/custom_textfield.dart';
+import '../utils/routes/routes_name.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginViewState extends State<LoginView> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -101,6 +102,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 }
               }
             }),
+            SizedBox(
+              height: heightX * 0.03,
+            ),
+            InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, RoutesName.signUp);
+                },
+                child: Text('Don`t have an account Sign Up Now')),
           ],
         ),
       ),
