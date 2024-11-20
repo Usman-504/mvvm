@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_route.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mvvm/res/colors.dart';
 
 class Utils {
 
@@ -32,8 +33,13 @@ class Utils {
   static snackBar(String message, BuildContext context){
     return ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            content: Center(child: Text(message)),
-        backgroundColor: Colors.blue,
+            content: Center(child: Text(message, style: const  TextStyle(color: AppColors.whiteColor),), ),
+        backgroundColor: AppColors.blueColor,
         ));
+  }
+
+  static void fieldFocusChange(BuildContext context, FocusNode current, FocusNode? next){
+    current.unfocus();
+    FocusScope.of(context).requestFocus(next);
   }
 }
