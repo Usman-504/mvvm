@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mvvm/res/colors.dart';
 import 'package:mvvm/res/components/custom_button.dart';
 import 'package:mvvm/utils/utils.dart';
+import 'package:mvvm/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 
 import '../res/components/custom_textfield.dart';
 
@@ -37,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     final heightX = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -75,7 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: heightX * 0.03,
             ),
-            CustomButton(title: 'Login', onPress: (){
+            CustomButton(
+                loading: authViewModel.loading,
+                title: 'Login', onPress: (){
               if(_emailController.text.isEmpty){
                 Utils.snackBar('Please Enter Email', context);
               }
@@ -86,6 +91,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Utils.snackBar('Please Enter 6 Digit Password', context);
               }
               else{
+                Map data = {
+                  'email' : _emailController.text.trim(),
+                  'password' : _passwordController.text.trim(),
+                };
+                authViewModel.loginApi(data, context);
                 if (kDebugMode) {
                   print('Api Hit');
                 }
