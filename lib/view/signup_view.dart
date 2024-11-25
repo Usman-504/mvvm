@@ -46,6 +46,7 @@ class _SignupViewState extends State<SignupView> {
     final heightX = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: AppColors.blueColor,
         title: const Text('Sign Up'),
@@ -111,7 +112,7 @@ class _SignupViewState extends State<SignupView> {
                 onTap: (){
                   Navigator.pushNamed(context, RoutesName.login);
                 },
-                child: Text('Already have an account Login Now')),
+                child: const Text('Already have an account Login Now')),
           ],
         ),
       ),
