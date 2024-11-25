@@ -110,7 +110,7 @@ class _LoginViewState extends State<LoginView> {
                 onTap: (){
                   Navigator.pushNamed(context, RoutesName.signUp);
                 },
-                child: Text('Don`t have an account Sign Up Now')),
+                child:  const Text('Don`t have an account Sign Up Now')),
           ],
         ),
       ),

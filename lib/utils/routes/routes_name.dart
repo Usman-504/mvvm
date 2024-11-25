@@ -6,4 +6,6 @@ class RoutesName {
   static const String signUp = 'signUp_screen';
 
   static const String home = 'home_screen';
+
+  static const String weather = 'weather_screen';
 }

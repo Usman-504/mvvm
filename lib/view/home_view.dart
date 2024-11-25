@@ -27,6 +27,11 @@ class _HomeViewState extends State<HomeView> {
     final userPreferences = Provider.of<UserViewModel>(context);
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, RoutesName.weather);
+          },
+            child: Icon(Icons.sunny)),
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Colors.blue,
@@ -38,8 +43,8 @@ class _HomeViewState extends State<HomeView> {
                   Navigator.pushNamed(context, RoutesName.login);
                 });
               },
-              child: Icon(Icons.logout)),
-          SizedBox(
+              child: const Icon(Icons.logout)),
+          const SizedBox(
             width: 20,
           ),
         ],
@@ -51,7 +56,9 @@ class _HomeViewState extends State<HomeView> {
             switch (vm.moviesList.status) {
               case Status.LOADING:
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ),
                 );
               case Status.ERROR:
                 return Center(
@@ -68,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
                           height: 50,
                           vm.moviesList.data!.movies![index].posterurl.toString(),
                         errorBuilder: (context, error, stackTrace) {
-                          return Icon(Icons.error, color: Colors.red,);
+                          return const  Icon(Icons.error, color: Colors.red,);
                         },
                         ),
                         title: Text(vm.moviesList.data!.movies![index].title.toString()),
@@ -77,7 +84,7 @@ class _HomeViewState extends State<HomeView> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(Utils.doubleRating(vm.moviesList.data!.movies![index].ratings!).toString()),
-                            Icon(Icons.star, color: Colors.yellow,)
+                            const Icon(Icons.star, color: Colors.yellow,)
                           ],
                         ),
                       ),

@@ -4,6 +4,7 @@ import 'package:mvvm/view/home_view.dart';
 import 'package:mvvm/view/login_view.dart';
 import 'package:mvvm/view/signup_view.dart';
 import 'package:mvvm/view/splash_view.dart';
+import 'package:mvvm/view/weather_view.dart';
 
 class Routes {
 
@@ -17,6 +18,8 @@ class Routes {
         return MaterialPageRoute(builder: (_)=>const SignupView());
       case RoutesName.home:
         return MaterialPageRoute(builder: (_)=>const HomeView());
+      case RoutesName.weather:
+        return MaterialPageRoute(builder: (_)=>const WeatherView());
       default:
         return MaterialPageRoute(builder: (_){
           return const  Scaffold(

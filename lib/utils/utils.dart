@@ -24,7 +24,7 @@ class Utils {
     showFlushbar(context: context,
         flushbar: Flushbar(
          positionOffset: 20,
-          icon: Icon(Icons.error, color: Colors.white, size: 25,),
+          icon: const Icon(Icons.error, color: Colors.white, size: 25,),
           backgroundColor: Colors.blue,
           messageColor: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -32,8 +32,8 @@ class Utils {
           reverseAnimationCurve: Curves.easeInOut,
           duration: const Duration(seconds: 3),
           message: message,
-          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          padding: EdgeInsets.all(15),
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.all(15),
         )..show(context)
     );
   }
