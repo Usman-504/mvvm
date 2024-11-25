@@ -6,7 +6,7 @@ import '../res/app_urls.dart';
 
 class HomeRepository {
 
-  BaseApiServices _apiServices = NetworkApiServices();
+  BaseApiServices _apiServices = NetworkApiServices.instance();
 
   Future<MoviesModel> fetchMovies() async{
     try{
