@@ -6,7 +6,7 @@ import '../res/app_urls.dart';
 
 class WeatherRepository {
 
-  BaseApiServices _apiServices = NetworkApiServices.instance();
+  BaseApiServices _apiServices = NetworkApiServices.instance;
 
   Future<WeatherModel> fetchWeatherData() async{
     try{

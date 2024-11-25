@@ -8,16 +8,19 @@ import 'package:http/http.dart' as http;
 
 class NetworkApiServices extends BaseApiServices {
 
-  static NetworkApiServices? networkApiServices;
-
-  NetworkApiServices._internal(){
-    print('call');
-  }
-
-  static NetworkApiServices instance(){
-    networkApiServices ??= NetworkApiServices._internal();
-    return networkApiServices!;
-  }
+  NetworkApiServices._internal();
+  static final  NetworkApiServices _instance = NetworkApiServices._internal();
+  static NetworkApiServices get instance => _instance;
+  // static NetworkApiServices? networkApiServices;
+  //
+  // NetworkApiServices._internal(){
+  //   print('call');
+  // }
+  //
+  // static NetworkApiServices instance(){
+  //   networkApiServices ??= NetworkApiServices._internal();
+  //   return networkApiServices!;
+  // }
 
   @override
   Future getGetApiResponse(String url) async {
