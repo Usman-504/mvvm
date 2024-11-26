@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
           onTap: (){
             Navigator.pushNamed(context, RoutesName.weather);
           },
-            child: Icon(Icons.sunny)),
+            child: const Icon(Icons.sunny)),
         automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: Colors.blue,
